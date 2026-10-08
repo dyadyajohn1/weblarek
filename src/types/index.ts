@@ -7,12 +7,7 @@ export interface IApi {
 
 export type TPayment = 'card' | 'cash' | '';
 
-export type ValidationErrors = {
-  payment?: string;
-  address?: string;
-  phone?: string;
-  email?: string;
-};
+export type ValidationErrors = Partial<Record<keyof IBuyer, string>>;
 
 export interface IProduct {
   id: string;

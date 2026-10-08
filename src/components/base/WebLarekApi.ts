@@ -8,11 +8,11 @@ class WebLarekApi {
   }
 
   getProducts(): Promise<IServerResponse> {
-    return this.api.get<IServerResponse>('/api/weblarek/product/');
+    return this.api.get<IServerResponse>('/product/');
   }
 
   postOrder(order: IOrderRequest): Promise<IOrderResponse> {
-    return this.api.post<IOrderResponse>('/api/weblarek/order/', order);
+    return this.api.post<IOrderResponse>('/order/', order);
   }
 }
 
