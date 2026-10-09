@@ -1,9 +1,9 @@
 import './scss/styles.scss';
 
-import Catalog from './components/base/models/Catalog';
-import Cart from './components/base/models/Cart';
-import Buyer from './components/base/models/Buyer';
-import WebLarekApi from './components/base/WebLarekApi';
+import Catalog from './components/models/Catalog';
+import Cart from './components/models/Cart';
+import Buyer from './components/models/Buyer';
+import WebLarekApi from './components/WebLarekApi';
 import { Api } from './components/base/Api';
 import { API_URL } from './utils/constants';
 import { apiProducts } from './utils/data';

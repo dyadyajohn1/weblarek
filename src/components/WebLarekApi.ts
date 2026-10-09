@@ -1,4 +1,4 @@
-import { IServerResponse, IOrderRequest, IOrderResponse, IApi } from '../../types';
+import { IServerResponse, IOrderRequest, IOrderResponse, IApi } from '../types';
 
 class WebLarekApi {
   private api: IApi;
