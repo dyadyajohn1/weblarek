@@ -1,4 +1,5 @@
 import { IBuyer, TPayment, ValidationErrors } from '../../types';
+import { IEvents } from '../base/Events';
 
 class Buyer {
   private payment: TPayment = '';
@@ -6,8 +7,11 @@ class Buyer {
   private phone: string = '';
   private email: string = '';
 
+  constructor(protected events: IEvents) {}
+
   setData(data: Partial<IBuyer>): void {
     Object.assign(this, data);
+    this.events.emit('buyer:changed');
   }
 
   getData(): IBuyer {
@@ -24,17 +28,18 @@ class Buyer {
     this.address = '';
     this.phone = '';
     this.email = '';
+    this.events.emit('buyer:changed');
   }
   
   validate(): ValidationErrors  {
     const errors: ValidationErrors = {};
 
     if (this.payment === '') {
-      errors.payment = 'Не выбран спобособ оплаты';
+      errors.payment = 'Не выбран способ оплаты';
     }
 
     if (this.address.trim() === '') {
-      errors.address = 'Необходимо указать адресс';
+      errors.address = 'Необходимо указать адрес';
     }
 
     if (this.phone.trim() === '') {
