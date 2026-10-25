@@ -1,12 +1,8 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { ensureElement } from '../../utils/utils';
 import { Component } from '../base/Component';
 import { ICardActions } from '../../types'; 
 
-export interface IHeader {
+interface IHeader {
   counter: number;
 }
 

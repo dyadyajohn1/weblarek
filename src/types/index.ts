@@ -45,3 +45,18 @@ export interface IOrderResponse {
 export interface ICardActions {
   onClick?: (event: MouseEvent) => void;
 }
+
+export interface IFormState {
+  valid: boolean;
+  errors: string;
+}
+
+export interface IFormActions {
+  onSubmit: () => void;
+  onInput?: (fieldName: string, value: string) => void;
+}
+
+export interface IFormChangeEvent {
+  field: string;
+  value: string;
+}

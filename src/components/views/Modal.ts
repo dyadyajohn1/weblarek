@@ -1,40 +1,29 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { Component } from "../base/Component";
 import { ensureElement } from "../../utils/utils";
 
-export interface IModal {
+interface IModal {
   content: HTMLElement;
-}
-
-// Отдельный интерфейс для модалки
-export interface IModalActions {
-  onClose: () => void;
 }
 
 export class Modal extends Component<IModal> {
   protected closeButton: HTMLButtonElement;
   protected contentContainer: HTMLElement;
 
-  constructor(container: HTMLElement, actions?: IModalActions) {
+  constructor(container: HTMLElement) {
     super(container);
 
     this.closeButton = ensureElement<HTMLButtonElement>('.modal__close', this.container);
     this.contentContainer = ensureElement<HTMLElement>('.modal__content', this.container);
 
-    if (actions?.onClose) {
-      this.closeButton.addEventListener('click', () => {
-        actions.onClose();
-      });
+    this.closeButton.addEventListener('click', () => {
+      this.close();
+    });
 
-      this.container.addEventListener('click', (event) => {
-        if (event.target === this.container) {
-          actions.onClose();
-        }
-      });
-    }
+    this.container.addEventListener('click', (event) => {
+      if (event.target === this.container) {
+        this.close();
+      }
+    });
   }
 
   // Сеттер для замены содержимого модального окна

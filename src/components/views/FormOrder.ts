@@ -1,12 +1,9 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
-import { Form, IFormState, IFormActions } from './Form';
+import { Form } from './Form';
 import { TPayment } from '../../types';
 import { ensureElement } from '../../utils/utils';
+import { IFormState, IFormActions } from '../../types';
 
-export interface IFormOrder extends IFormState {
+interface IFormOrder extends IFormState {
   payment: TPayment;
   address: string;
 }

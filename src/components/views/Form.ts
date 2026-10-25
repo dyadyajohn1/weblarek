@@ -1,20 +1,6 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { Component } from '../base/Component';
 import { ensureElement } from '../../utils/utils';
-
-export interface IFormState {
-  valid: boolean;
-  errors: string;
-}
-
-export interface IFormActions {
-  onSubmit: () => void;
-  // Универсальный обработчик ввода для всех полей (если нужно)
-  onInput?: (fieldName: string, value: string) => void;
-}
+import { IFormState, IFormActions } from '../../types';
 
 export abstract class Form<T> extends Component<T & IFormState> {
   protected submitButton: HTMLButtonElement;

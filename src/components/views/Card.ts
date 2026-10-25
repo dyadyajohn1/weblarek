@@ -1,12 +1,8 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { ensureElement } from '../../utils/utils';
 import { Component } from '../base/Component';
 
-// Общие данные любой карточки товара в нашем проекте
-export interface ICard {
+// Общие данные любой карточки товара в проекте
+interface ICard {
   title: string;
   price: number | null; // Используем null для "Бесценно"
 }
@@ -14,6 +10,7 @@ export interface ICard {
 export abstract class Card<T = object> extends Component<ICard & T> {
   protected titleElement: HTMLElement;
   protected priceElement: HTMLElement;
+  protected _title: string = '';
 
   constructor(container: HTMLElement) {
     super(container);
@@ -23,6 +20,7 @@ export abstract class Card<T = object> extends Component<ICard & T> {
   }
 
   protected set title(value: string) {
+    this._title = value;
     this.titleElement.textContent = value;
   }
 

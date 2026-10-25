@@ -1,18 +1,14 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { Component } from '../base/Component';
 import { ensureElement } from '../../utils/utils';
 
-export interface IBasketView {
-  items: HTMLElement[]; // Массив готовых карточек
-  total: number;       // Общая стоимость
-  disabled: boolean; // Состояние, когда товаров нет в корзине
+interface IBasketView {
+  items: HTMLElement[];
+  total: number;
+  disabled: boolean;
 }
 
-export interface IBasketActions {
-  onSubmit: () => void; // Клик по кнопке "Оформить"
+interface IBasketActions {
+  onSubmit: () => void;
 }
 
 export class Basket extends Component<IBasketView> {
@@ -34,7 +30,6 @@ export class Basket extends Component<IBasketView> {
     }
   }
 
-  // Сеттер для обновления списка карточек
   protected set items(items: HTMLElement[]) {
     this.listElement.replaceChildren(...items);
   }

@@ -1,11 +1,7 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { Component } from "../base/Component";
 import { ensureElement } from "../../utils/utils";
 
-export interface ISuccess {
+interface ISuccess {
   totalAmount: number;
 }
 

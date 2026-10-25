@@ -1,10 +1,6 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
 import { Component } from '../base/Component';
 
-export interface IGallery {
+interface IGallery {
   items: HTMLElement[];
 }
 
@@ -14,7 +10,7 @@ export class Gallery extends Component<IGallery> {
   }
 
   set items(items: HTMLElement[]) {
-    // Обновляем карточки, если были другие
+    // Обновляем карточки
     this.container.replaceChildren(...items);
   }
 }

@@ -1,11 +1,8 @@
-/**
- * СТАТУС: РЕАЛИЗОВАНО
- */
-
-import { Form, IFormState, IFormActions } from './Form';
+import { Form } from './Form';
 import { ensureElement } from '../../utils/utils';
+import { IFormState, IFormActions } from '../../types';
 
-export interface IFormContacts extends IFormState {
+interface IFormContacts extends IFormState {
   email: string;
   phone: string;
 }
